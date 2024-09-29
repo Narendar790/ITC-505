@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivering Custom Fonts to Browsers</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap">
+    <style>
+        body {
+            font-family: 'Abril Fatface', cursive;
+            background-color: #fff8e1;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            font-size: 18px;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #e67e22;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            margin: 0;
+        }
+
+        h2 {
+            color: #d35400;
+            text-align: center;
+        }
+
+        ol {
+            padding-left: 40px;
+        }
+
+        code {
+            background-color: #f9f9f9;
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+
+        pre {
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            overflow: auto;
+            padding: 10px;
+        }
+
+        footer {
+            background-color: #e67e22;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        a {
+            color: #d35400;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .steps {
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Delivering Custom Fonts to Browsers</h1>
+    </header>
+    <main>
+        <div>
+            <h2>Font Overview: Abril Fatface</h2>
+            <ol>
+                <li><strong>Font Style:</strong> Abril Fatface is a bold serif font with a strong presence, perfect for headings.</li>
+                <li><strong>Usage:</strong> Ideal for titles and emphasis in design, adding a touch of elegance.</li>
+                <li><strong>Design:</strong> Features high contrast and dramatic letterforms that stand out.</li>
+                <li><strong>Readability:</strong> Best used in larger sizes for maximum impact and legibility.</li>
+                <li><strong>Compatibility:</strong> Well-supported across all major browsers and devices.</li>
+                <li><strong>Performance:</strong> Designed for web use, ensuring efficient loading times.</li>
+            </ol>
+        </div>
+        <div class="steps">
+            <p>This section explains how to use a custom font from the Google Fonts CDN.</p>
+            <h2>Steps to Use Google Fonts</h2>
+            <ol>
+                <li><strong>Include Google Fonts Link:</strong> Add a link to the Google Fonts stylesheet in the `<head>` section of your HTML:
+                    <pre><code>&lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"&gt;</code></pre>
+                </li>
+                <li><strong>Apply Font in CSS:</strong> Use the font-family specified in the Google Fonts link in your CSS styles:
+                    <pre><code>body {
+    font-family: 'Abril Fatface', cursive;
+}</code></pre>
+                </li>
+            </ol>
+            <p>By following these steps, the Abril Fatface font will be loaded from the Google Fonts CDN and applied to the entire document.</p>
+        </div>
+    </main>
+    <footer>
+        <p>Last updated:
+            <span id="lastModified"></span>
+        </p>
+    </footer>
+    <script type="text/javascript">
+        var x = document.lastModified;
+        document.getElementById('lastModified').textContent = x;
+    </script>
+</body>
+
+</html>
