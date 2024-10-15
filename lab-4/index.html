@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 4 - ITC 505</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: black;
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+        color: white;
+      }
+
+      h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+      }
+
+      p,
+      li {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      ul {
+        list-style-type: disc;
+        margin-left: 20px;
+      }
+
+      section {
+        background-color: lightblue;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      footer {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 14px;
+      }
+
+      .addendum h2 {
+        font-size: 24px;
+        margin-top: 20px;
+      }
+
+      .addendum p {
+        font-size: 16px;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 class="text-center">Pallaka Venkata Narendar</h1>
+      <p class="text-center">
+        Phone: +91 7780442395 | Mail: narendarreddy0305@gmail.com | Date of
+        Birth: 03 May 2002
+      </p>
+    </header>
+
+    <section class="education">
+      <h2>Education</h2>
+      <ul>
+        <li>
+          <strong>BTech:</strong> Sathyabama Institute of Science and
+          Technology, Computer Science & Engineering<br />
+          CGPA: 7.64/10 (2019 - 2023)
+        </li>
+        <li>
+          <strong>12th:</strong> Harvest Public School, Telangana (CBSE)<br />
+          Percentage: 53% (2017 - 2019)
+        </li>
+        <li>
+          <strong>10th:</strong> Harvest Public School, Telangana (CBSE)<br />
+          CGPA: 7.8/10 (2016 - 2017)
+        </li>
+      </ul>
+    </section>
+
+    <section class="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li>
+          <strong>Bus Reservation:</strong> Created a website for bus
+          reservations using HTML (front end) and Python Django (back end).
+        </li>
+        <li>
+          <strong>Personal Nutritionist:</strong> Developed an app for diet
+          recommendation based on user health information, including support for
+          pregnant women and those with PCOD.
+        </li>
+        <li>
+          <strong>Human Skin Tone Prediction:</strong> Created a website using
+          machine learning to predict skin tone based on input images.
+        </li>
+      </ul>
+    </section>
+
+    <section class="training">
+      <h2>Training & Certifications</h2>
+      <ul>
+        <li><strong>Django Web Development:</strong> Credo Systems</li>
+        <li><strong>Cloud Computing:</strong> Star Computing</li>
+        <li><strong>Machine Learning with Python:</strong> Verzeo</li>
+      </ul>
+    </section>
+
+    <section class="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>Python</li>
+        <li>Java</li>
+        <li>MySQL</li>
+        <li>Machine Learning</li>
+      </ul>
+    </section>
+
+    <section class="addendum">
+      <h2>Addendum: Explanation of Stylistic Choices</h2>
+      <p>
+        <strong>Font Choices:</strong> As for the font, I chose ‘Arial’ as my
+        base font because it may be a universal, versatile font, it goes well
+        with professional resume because of its simple, sans-serif form that
+        improves the readability. It makes sure that passage can be readable on
+        all platforms.
+      </p>
+      <p>
+        <strong>Heading Sizes:</strong> It has been made this way to look
+        professional, the main heading has a font size of 36px while the
+        subheadings have a font size of 28px. The body text size is 18px in
+        order to avoid loosing readability while using high-res screens.
+      </p>
+      <p>
+        <strong>Color Choices:</strong> The colours chosen are black and
+        lightblue. The text color to work with was chosen as white as they are
+        easy to read against the dark color scheme of the book, thus making
+        content easy to read.
+      </p>
+      <p>
+        <strong>Margins and Padding:</strong> I floated all the elements of
+        every section and also gave margins and paddings of equal space so that
+        the content does not touch each other. This also helps to avoid the
+        scenario where some of the characters seem they might come close as to
+        join which is not easy to read.
+      </p>
+
+      <h2>HTML Abuse</h2>
+      <p>
+        In the previous version of the HTML I utilized the h2 tag for the Main
+        Title (my name). For this version, I remedied that in which there were
+        no appropriate h1 for the highest level heading as this is semantically
+        correct and improves access.
+      </p>
+    </section>
+
+    <footer>
+      <p>
+        Last updated:
+        <span id="lastModified"></span>
+      </p>
+    </footer>
+
+    <script type="text/javascript">
+      var x = document.lastModified;
+      document.getElementById("lastModified").textContent = x;
+    </script>
+  </body>
+</html>
