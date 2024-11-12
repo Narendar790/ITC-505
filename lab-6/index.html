@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        body {
+            margin: 0;
+        }
+
+        .container {
+            display: grid;
+            grid-template-areas: 
+                "header header header"
+                "sidebar main advertisement"
+                "footer footer footer";
+            grid-template-columns: 1fr 3fr 1fr;
+            grid-template-rows: auto 1fr auto;
+            height: 100vh;
+        }
+
+        header {
+            grid-area: header;
+            background-color: grey;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background-color: yellow;
+            padding: 1em;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+        }
+
+        main {
+            grid-area: main;
+            padding: 1em;
+        }
+
+        .advertisement {
+            grid-area: advertisement;
+            text-align: center;
+        }
+
+        footer {
+            grid-area: footer;
+            background-color: green;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Guess the Number Game</h1>
+        </header>
+
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <h2>Try to guess the number between 1 and 100!</h2>
+            <input type="number" id="guessInput" placeholder="Enter your guess" min="1" max="100" style="width: 300px;">
+            <button id="guessButton">Guess</button>
+            <p id="feedback"></p>
+            <button id="resetButton" style="display: none;">Play Again</button>
+        </main>
+
+        <aside class="advertisement">
+            <p>Advertisement</p>
+            <a href="https://www.amazon.com/Boost-Mobile-Apple-iPhone-Intelligence/dp/B0DGLXW4X4/ref=sxin_10_hcs-iphone-pl-us-1?content-id=amzn1.sym.01070470-22b3-4bce-acee-34432f35544a%3Aamzn1.sym.01070470-22b3-4bce-acee-34432f35544a&cv_ct_cx=iphone+16&dib=eyJ2IjoiMSJ9.8aIKVoMduIOPhfPLEV7Djv_NNRmGflbIsxL8KGvQ_Bndwtu_WDxxlO0ykSs_q_sk.1Pa7z_imG-JWup5jMDMNhSY6wQYx7wqXP6m3gpFuUss&dib_tag=se&keywords=iphone+16&pd_rd_i=B0DGLXW4X4&pd_rd_r=e479d276-029a-42a6-ab31-4db12b486ba0&pd_rd_w=s5Pvq&pd_rd_wg=7Eb7Z&pf_rd_p=01070470-22b3-4bce-acee-34432f35544a&pf_rd_r=YZBGX5MZTXJBDE7BE2M2&qid=1731369995&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sr=1-1-9e0332f7-784d-40b6-ae10-97268e9ee826" target="_blank">
+                <img src="https://m.media-amazon.com/images/I/41e+tgBu8iL._AC_SX466_.jpg" alt="Ad Image" style="max-width: 100%;">
+            </a>
+        </aside>
+
+        <footer>
+            <p>Last updated: 
+                <span id="lastModified"></span>
+            </p>
+        </footer>
+    </div>
+    <script type="text/javascript">
+        var x = document.lastModified;
+        document.getElementById('lastModified').textContent = x;
+   </script>
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+
+        document.getElementById("guessButton").addEventListener("click", checkGuess);
+        document.getElementById("resetButton").addEventListener("click", resetGame);
+
+        function checkGuess() {
+            const guess = Number(document.getElementById("guessInput").value);
+            const feedback = document.getElementById("feedback");
+            attempts++;
+
+            if (guess === randomNumber) {
+                feedback.textContent = `Congratulations! You guessed the number in ${attempts} attempts!`;
+                endGame();
+            } else if (guess > randomNumber) {
+                feedback.textContent = "Too high! Try again.";
+            } else if (guess < randomNumber) {
+                feedback.textContent = "Too low! Try again.";
+            }
+        }
+
+        function endGame() {
+            document.getElementById("guessButton").disabled = true;
+            document.getElementById("guessInput").disabled = true;
+            document.getElementById("resetButton").style.display = "inline";
+        }
+
+        function resetGame() {
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+            attempts = 0;
+            document.getElementById("feedback").textContent = "";
+            document.getElementById("guessButton").disabled = false;
+            document.getElementById("guessInput").disabled = false;
+            document.getElementById("resetButton").style.display = "none";
+            document.getElementById("guessInput").value = "";
+        }
+
+
+    </script>
+</body>
+</html>
