@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/7aa58467-f640-464d-95c6-55e2190f17f7/resourceGroups/NAU/providers/Microsoft.Web/sites/narendra",
+    "appService.deploySubpath": "."
+}
