@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Web Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 20px;
+      max-width: 600px;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    form label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    form input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid white;
+      border-radius: 4px;
+    }
+    form button {
+      background-color: blue;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    form button:hover {
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <h2>Secure Form</h2>
+  <p>Fill in the details below and submit the form. * All fields are mandatory.</p>
+  
+  <form id="secureForm">
+    <label for="firstName">First Name*:</label>
+    <input type="text" id="firstName" name="firstName" required>
+
+    <label for="lastName">Last Name*:</label>
+    <input type="text" id="lastName" name="lastName" required>
+
+    <label for="email">Email*:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">Password*:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="confirmPassword">Confirm Password*:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+      function sanitizeInput(input) {
+      const temp = document.createElement('div');
+      temp.textContent = input;
+      return temp.innerHTML;
+    }
+
+    document.getElementById('secureForm').addEventListener('submit', function (e) {
+      e.preventDefault(); 
+
+      const firstName = sanitizeInput(document.getElementById('firstName').value.trim());
+      const lastName = sanitizeInput(document.getElementById('lastName').value.trim());
+      const email = sanitizeInput(document.getElementById('email').value.trim());
+      const password = sanitizeInput(document.getElementById('password').value.trim());
+      const confirmPassword = sanitizeInput(document.getElementById('confirmPassword').value.trim());
+
+
+      if (!firstName || !lastName || !email || !password || !confirmPassword) {
+        alert('All fields must be filled!');
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Invalid email format!');
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert('Passwords do not match!');
+        return;
+      }
+
+      alert('Form submitted securely!');
+    });
+  </script>
+</body>
+</html>
