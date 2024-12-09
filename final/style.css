@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+h1 {
+    margin-top: 20px;
+    font-size: 2em;
+    color: #444;
+}
+
+p {
+    margin: 10px 0 20px;
+    font-size: 1.2em;
+}
+
+#game-board {
+    display: grid;
+    gap: 5px;
+    margin: 20px auto;
+    width: 200px;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cell.is-off {
+    background-color: black;
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #555;
+}
