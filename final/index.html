@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lights Out Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        #game-board {
+            display: grid;
+            gap: 5px;
+            margin: 20px auto;
+            width: 200px;
+            grid-template-columns: repeat(5, 1fr);
+        }
+        .cell {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border: 1px solid white;
+            cursor: pointer;
+        }
+        .is-off {
+            background-color: black;
+        }
+        footer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lights Out Game</h1>
+    <p>Click the squares to toggle the lights. Turn all squares off to win!</p>
+    <div id="game-board"></div>
+    <footer>
+        <p>Last updated: <span id="lastModified"></span></p>
+    </footer>
+    <script>
+        var x = document.lastModified;
+        document.getElementById('lastModified').textContent = x;
+    </script>
+    <script src="game.js"></script>
+</body>
+</html>
