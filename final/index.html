@@ -1,49 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lights Out Game</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        #game-board {
-            display: grid;
-            gap: 5px;
-            margin: 20px auto;
-            width: 200px;
-            grid-template-columns: repeat(5, 1fr);
-        }
-        .cell {
-            width: 40px;
-            height: 40px;
-            background-color: white;
-            border: 1px solid green;
-            cursor: pointer;
-        }
-        .is-off {
-            background-color: black;
-        }
-        footer {
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lights Out Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    #game-board {
+      display: grid;
+      gap: 5px;
+      margin: 20px auto;
+      width: 200px;
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .cell {
+      width: 40px;
+      height: 40px;
+      background-color: white;
+      border: 1px solid green;
+      cursor: pointer;
+    }
+
+    .is-off {
+      background-color: black;
+    }
+
+    footer {
+      margin-top: 20px;
+    }
+  </style>
 </head>
+
 <body>
-    <h1>Lights Out Game</h1>
-    <p>Click the squares to toggle the lights. Turn all squares off to win!</p>
-    <div id="game-board"></div>
-    <footer>
-        <p>Last updated: <span id="lastModified"></span></p>
-    </footer>
-    <script>
-        var x = document.lastModified;
-        document.getElementById('lastModified').textContent = x;
-    </script>
-    <script src="game.js"></script>
+  <h1>Lights Out Game</h1>
+  <p>Click the squares to toggle the lights. Turn all squares off to win!</p>
+  <div id="game-board"></div>
+  <div id="addendum">
+    <h2>Game Addendum</h2>
+    <p><strong>Game Objective:</strong> The goal of the Lights Out game is to turn off all the lights (make all the squares black). Each square can be toggled by clicking on it, and clicking a square will also toggle the state (on/off) of its adjacent squares (up, down, left, and right). You win when all squares are turned off!</p>
+
+    <p><strong>How to Play:</strong>
+    <ol>
+      <li>Click any square to toggle its light.</li>
+      <li>When you click a square, it toggles between on (white) and off (black).</li>
+      <li>Clicking a square will also toggle the adjacent squares (up, down, left, and right) automatically.</li>
+      <li>Your objective is to turn all the squares off (all squares should be black).</li>
+    </ol>
+    </p>
+    <h3>Development Process & Insights</h3>
+    <p><strong>Process:</strong> The development of the Lights Out game began with the core mechanics of toggling cells and creating the interaction model. The game board is a simple 5x5 grid, with each cell toggling between on and off when clicked, affecting not only the clicked cell but also its neighbors. To make the game fun and dynamic, I incorporated a randomization feature that scrambles the board at the start of each game, making every playthrough unique.</p>
+
+    <p><strong>Creative Choices:</strong> The primary challenge was designing a game that was both simple and challenging. The game board layout (5x5 grid) is small enough to be manageable, yet large enough to create complexity. I chose a minimalist design with clear visual feedback (cells changing from white to black) to keep the focus on the gameplay. I also used smooth transitions to enhance the interactivity of the game, making it visually satisfying to play.</p>
+
+    <p><strong>Challenges Faced:</strong> One of the key challenges was ensuring that the logic for toggling adjacent cells worked correctly and that the win condition was properly implemented. Initially, I faced issues with inconsistent toggling of cells or the win condition not triggering at the right time. To overcome this, I wrote helper functions to check the win condition more thoroughly and ensured that the toggle logic only affected valid neighboring cells. Debugging this took some time, but it helped me understand the intricacies of how grid-based games function.</p>
+
+    <p><strong>Insights Gained:</strong> I learned a lot about managing game state and handling grid-based interactions. One of the most valuable insights I gained was the importance of feedback in games—simple animations and transitions can significantly improve the player's experience by making the interactions feel more rewarding. I also realized that randomization can add an element of unpredictability, which keeps the game interesting and challenging for players. This project also emphasized how to balance simplicity with challenge, making sure that the game is intuitive yet engaging.</p>
+  </div>
+  <footer>
+    <p>Last updated: <span id="lastModified"></span></p>
+  </footer>
+  <script>
+    var x = document.lastModified;
+    document.getElementById('lastModified').textContent = x;
+  </script>
+  <script src="game.js"></script>
 </body>
+
 </html>
