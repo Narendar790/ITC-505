@@ -4,13 +4,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lights Out Game</title>
+  <title>Lights Off Game</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       margin: 0;
       padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: 2.5em;
+      color: #555;
+    }
+
+    p {
+      margin: 15px 0;
+      font-size: 1.2em;
     }
 
     #game-board {
@@ -25,43 +38,69 @@
       width: 40px;
       height: 40px;
       background-color: white;
-      border: 1px solid green;
+      border: 1px solid #ccc;
       cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
     }
 
-    .is-off {
+    .cell.is-off {
       background-color: black;
     }
 
+    #addendum {
+      margin-top: 30px;
+      text-align: left;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     footer {
-      margin-top: 20px;
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #666;
     }
   </style>
 </head>
 
 <body>
-  <h1>Lights Out Game</h1>
+  <h1>Lights Off Game</h1>
   <p>Click the squares to toggle the lights. Turn all squares off to win!</p>
   <div id="game-board"></div>
+  
   <div id="addendum">
     <h2>Addendum</h2>
-    <h3>Development Process & Insights</h3>
-    <p><strong>Process:</strong> The Lights Out game’s concept was initiated with the toggling cells’ concept and the initiating of the interaction model. The one and only gameplay element in this Fractal game is a simple 5 x 5 cells board which, when is clicked, reveals a cell as ‘on’ or ‘off’ and switches its state while also switching the state of the immediate neighboring cells. To enhance the non-bored game playing experience, I included a Shuffle option that shuffles the game board at the start of the game making the game different each time it’s played.</p>
+    <h3>Development Process</h3>
+    <p>
+      The game development process started with understanding the rules of Lights Out and breaking them down into toggle logic. The logic was implemented to toggle a single square and its neighbors, ensuring a simple yet functional gameplay mechanic.
+    </p>
 
-    <p><strong>Creative Choices:</strong> The first one was achieving the goal of creating the game that is easy to play, but at the same time requires certain effort. The small triangular grid (5×5) is big enough not to be overwhelming while at the same creating the impression of a meaty game board. That is why I decided to avoid any flashy elements and stick with simple cell-shifting mechanic, where cells turn from white to black. I also employed continuity to also give the additional value of interactivity to the game so that visually it was nice to play.</p>
+    <h3>Creative Choices</h3>
+    <p>
+      Keeping the design minimal was a key decision to make the game approachable and user-friendly. The 5x5 grid size was chosen as it provides a balance between complexity and playability. Subtle transitions were added to improve visual feedback for player actions.
+    </p>
 
-    <p><strong>Challenges Faced:</strong> Probably the most important issue was to develop a logic for flipping neighbouring cells and check that the winning condition is met. At first I had problems with switching cells not being switched at the right time or the win condition not being triggered at the right time. To overcome this, I rewrote different helper functions to more thoroughly check the win condition and made sure that the toggle logic only ‘modified’ the valid neighboring cells. This debugging needed some time, but it helped me to realize how exactly grid-based games are constructed.</p>
+    <h3>Challenges Faced</h3>
+    <p>
+      Ensuring all edge cases were handled properly when toggling neighboring cells was challenging. Additionally, determining if the grid is in a solved state required careful handling of state checks for each cell in the grid. Debugging these issues helped refine the logic and improve overall game stability.
+    </p>
 
-    <p><strong>Insights Gained:</strong> It’s been useful for me to really get a sense of how to handle state in a game and to work with a grid-based interface. Due to the weekly meetings with these concepts being presented I was able to acquire one of the most powerful lessons I could ever take from a game design course, feedback – simple animations and transitions can go a long way in actually making the interactions feel more rewarding to the player. I also noted that randomization can bring an opportunity of unpredictability and, thus, the game keeps being interesting and engaging for players. This project also made me realize how to find a balance between how easy and how complex a game is to play while ensuring that the game is as fun as possible.</p>
+    <h3>Insights Gained</h3>
+    <p>
+      This project reinforced the importance of breaking problems into smaller parts. Implementing and testing grid-based logic was an excellent learning experience, especially for understanding how to manipulate the DOM efficiently. It also emphasized the role of feedback in gameplay, as subtle animations significantly improved user engagement.
+    </p>
   </div>
+
   <footer>
-    <p>Last updated: <span id="lastModified"></span></p>
+    <p>Last updated: <span id="lastUpdated"></span></p>
   </footer>
+
   <script>
-    var x = document.lastModified;
-    document.getElementById('lastModified').textContent = x;
+    const lastModified = document.lastModified;
+    document.getElementById('lastUpdated').textContent = lastModified;
   </script>
   <script src="game.js"></script>
 </body>
 
 </html>
+
